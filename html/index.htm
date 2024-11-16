@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frontend Inmate</title>
+    <script>
+         window.addEventListener('pywebviewready',function () { window.pywebview.api.initialize() })
+    </script>
+</head>
+<body>
+
+<div id="left">
+    <select id="lb_conversations"></select>
+    <button id="btn_add_conversation">+</button>
+    <button id="btn_remove_conversation">-</button>
+</div>
+
+<div id="right">
+    <div id="header"></div>
+    <div id="conversation"></div>
+
+
+    <div id="input">
+        <button id="btn_prompt_settings">⚙</button>
+        <button id="btn_prompt_history">?</button>
+
+        <button id="btn_clear_prompt">x</button>
+        <button id="btn_undo_change">&lt;</button>
+        <button id="btn_redo_change">&gt;</button>
+
+        <textarea id="tb_prompt" rows="4" cols="50"></textarea>
+        <button id="btn_toggle_prompt_height">+</button>
+        <button id="btn_send_prompt">📤</button>
+    </div>
+</div>
+
+<div id ="prompt_settings">
+    <div id="prompt_settings_div_left">
+    <select id="prompt_settings_lb_configurations"></select>
+    <button id="prompt_settings_btn_add_configuration">+</button>
+    <button id="prompt_settings_btn_remove_configuration">-</button>
+    </div>
+    <div id="prompt_settings_div_right">
+
+</div>
+
+</div>
+
+
+<div id="pop_add_prompt_configuration">
+    <select id="lb_available_models"></select>
+    <input type="text" id="tb_configuration_name" />
+    <button id="btn_confirm_add_configuration">OK</button>
+    <button id="btn_cancel_add_configuration">Cancel</button>
+</div>
+
+<div id ="prompt_history">
+
+
+</div>
+
+
+</body>
+</html>

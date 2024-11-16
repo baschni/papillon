@@ -1,0 +1,87 @@
+
+from json import dumps as j
+from init.classes import init_classes
+from init.design import init_design
+from init.logic import init_logic
+
+from queue import Queue
+class Api():
+
+    def __init__(self):
+        self.events = dict()
+        self.event_queue = Queue()
+        self.working = False
+
+    def set_gui(self,gui):
+        self.gui = gui
+        self.window = gui.window
+
+    def initialize(self):
+        self.gui.init_after_page_loading()
+        init_classes(self.gui)
+        init_design(self.gui)
+        init_logic(self.gui)
+
+    def register_event(self, id, element, event):
+        if id not in self.events.keys():
+            self.events[id] = (element, [])
+        if event in self.events[id][1]:
+            print("error: event already registered!")
+        else:
+            self.events[id][1].append(event)
+            register_event = f"""
+            document.getElementById({j(id)}).addEventListener(
+            {j(event)},
+            function(event) {{ window.pywebview.api.trigger_event({j(id)}, {j(event)}, event) }}
+            )
+            """
+            self.window.evaluate_js(register_event)
+
+
+    def trigger_event(self, id, event, event_object):
+        # work events with queue so that events do not coincide
+
+
+        self.event_queue.put((id, event, event_object))
+        if self.working == False:
+            self.work_events()
+
+    def work_events(self):
+
+        self.working = True
+        while True:
+            event = self.event_queue.get()
+            if event is None:
+                break
+            self.events[event[0]][0].trigger_event(event[1])
+        self.working = False
+
+
+    def unregister_event(self):
+        pass
+
+    # def prompt_function(self, message):
+    #     pass
+    #
+    # def set_prompt_function(self, receiving_function):
+    #     print("setting prompt function")
+    #     def prompt_function(message):
+    #         print("api prompt function triggered: " + message)
+    #         receiving_function(message)
+    #
+    #         def empty_function(message):
+    #             pass
+    #
+    #         self.prompt_function = empty_function
+    #
+    #     self.prompt_function = prompt_function
+        #self.prompt_function("test")
+
+    # def set_prompt_function(self, function):
+    #     pass
+        # def prompt_function(message):
+        #     pass
+            # function(message)
+            # self.prompt_function = None
+
+        # self.prompt_function = prompt_function
