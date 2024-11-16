@@ -1,7 +1,4 @@
 from json import dumps as j
-from init.classes import init_classes
-from init.design import init_design
-from init.logic import init_logic
 
 from queue import Queue
 
@@ -94,13 +91,12 @@ class Api():
         print(value)
 
     def set_gui(self, gui):
-        pass
         self.gui = gui
         #self.window = gui.window
 
 
 
-    # def initialize(self):
+    def initialize(self):
     #     init_classes(self.gui)
     #     init_design(self.gui)
     #     init_logic(self.gui)

@@ -5,6 +5,9 @@ from init.logics_gui_core.input import \
     clear_prompt, show_prompt_history, change_prompt, submit_prompt, toggle_prompt_height, \
     undo_change, redo_change
 from threading import Thread
+
+def change_to_index(gui):
+    
 def display_conversations(gui):
 
     # load conversation data from sqlite
@@ -17,7 +20,7 @@ def display_conversations(gui):
     # load first listbox entry
 
 
-    gui.btn_add_conversation.on_click(add_conversation)
+    gui.btn_add_conversation.on_click(change_to_index)
     gui.btn_remove_conversation.on_click(remove_conversation)
 
     gui.btn_toggle_prompt_height.on_click(toggle_prompt_height)

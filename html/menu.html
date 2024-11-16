@@ -1,0 +1,253 @@
+<html>
+
+<body>
+<style>
+	.detenu-menu-principal {
+		background-color: #fff;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		align-items: start;
+		padding: 24px 80px 477px;
+	}
+
+	.header-container {
+		display: flex;
+		width: 100%;
+		max-width: 1666px;
+		flex-direction: column;
+	}
+
+	.header-content {
+		display: flex;
+		width: 100%;
+		align-items: start;
+		gap: 20px;
+		color: #000;
+		text-align: center;
+		letter-spacing: 1.44px;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		font: 700 12px Amiko, sans-serif;
+	}
+
+	.logo {
+		aspect-ratio: 2.85;
+		object-fit: contain;
+		object-position: center;
+		width: 262px;
+		margin-top: 11px;
+		max-width: 100%;
+	}
+
+	.logout-button {
+		align-self: stretch;
+		width: 115px;
+		border-radius: 20px;
+		background-color: #d8d8d8;
+		min-height: 96px;
+		padding: 40px 4px;
+	}
+
+	.main-content {
+		align-self: center;
+		width: 100%;
+		max-width: 1440px;
+		margin: 350px 0 0 23px;
+	}
+
+	.button-grid {
+		gap: 20px;
+		display: flex;
+	}
+
+	.button-column {
+		display: flex;
+		flex-direction: column;
+		line-height: normal;
+		width: 20%;
+		margin-left: 0;
+	}
+
+	.menu-button {
+		border-radius: 20px;
+		background-color: #009951;
+		display: flex;
+		min-height: 125px;
+		flex-grow: 1;
+		align-items: center;
+		gap: 8px;
+		overflow: hidden;
+		color: #f5f5f5;
+		width: 100%;
+		justify-content: center;
+		padding: 55px 12px;
+		font: var(--sds-typography-body-font-weight-regular) var(--sds-typography-body-size-medium) / 1 var(--sds-typography-body-font-family);
+		border: 1px solid #444;
+	}
+
+	.button-icon {
+		aspect-ratio: 1;
+		object-fit: contain;
+		object-position: center;
+		width: 16px;
+		align-self: stretch;
+		margin: auto 0;
+	}
+
+	.button-text {
+		align-self: stretch;
+		margin: auto 0;
+	}
+
+	.multi-button-column {
+		display: flex;
+		flex-direction: column;
+		line-height: normal;
+		width: 61%;
+		margin-left: 20px;
+	}
+
+	.multi-button-container {
+		width: 100%;
+	}
+
+	.multi-button-grid {
+		gap: 20px;
+		display: flex;
+	}
+
+	.multi-button-column-item {
+		display: flex;
+		flex-direction: column;
+		line-height: normal;
+		width: 33%;
+		margin-left: 0;
+	}
+
+	@media (max-width: 991px) {
+		.detenu-menu-principal {
+			padding: 0 20px 100px;
+		}
+
+		.header-container {
+			max-width: 100%;
+		}
+
+		.header-content {
+			max-width: 100%;
+			white-space: initial;
+		}
+
+		.logout-button {
+			white-space: initial;
+		}
+
+		.main-content {
+			max-width: 100%;
+			margin-top: 40px;
+		}
+
+		.button-grid {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 0;
+		}
+
+		.button-column {
+			width: 100%;
+		}
+
+		.menu-button {
+			margin-top: 30px;
+		}
+
+		.multi-button-column {
+			width: 100%;
+		}
+
+		.multi-button-container {
+			max-width: 100%;
+			margin-top: 30px;
+		}
+
+		.multi-button-grid {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 0;
+		}
+
+		.multi-button-column-item {
+			width: 100%;
+		}
+
+		.multi-button-column-item .menu-button {
+			margin-top: 15px;
+			white-space: initial;
+		}
+	}
+</style>
+
+<header class="detenu-menu-principal">
+	<div class="header-container">
+		<div class="header-content">
+			<img loading="lazy"
+				src="https://cdn.builder.io/api/v1/image/assets/614fc55bbb9643c2906fc5702ff45b8b/d0ae42e710ef4c4a759ed67489b84c8e8d272856e4dd1ba66069547c3ebe7b84?apiKey=614fc55bbb9643c2906fc5702ff45b8b&"
+				class="logo" alt="Company logo" />
+			<button id="logout-button" class="logout-button">Déconnexion</button>
+		</div>
+		<nav class="main-content">
+			<div class="button-grid">
+				<div class="button-column">
+					<button id="profile_button" class="menu-button">
+						<img loading="lazy"
+							src="https://cdn.builder.io/api/v1/image/assets/614fc55bbb9643c2906fc5702ff45b8b/63a43a560be893f62ed54cfd77c6f10eb95965809519e1656364534164c72da7?apiKey=614fc55bbb9643c2906fc5702ff45b8b&"
+							class="button-icon" alt="" />
+						<span class="button-text">Mon profil</span>
+					</button>
+				</div>
+				<div class="multi-button-column">
+					<div class="multi-button-container">
+						<div class="multi-button-grid">
+							<div class="multi-button-column-item">
+								<button id="accounts-button" class="menu-button">
+									<img loading="lazy"
+										src="https://cdn.builder.io/api/v1/image/assets/614fc55bbb9643c2906fc5702ff45b8b/8cb988336cc1fbae94cab4da036674fc4eaa5c70b56e57d68f0e1edb4b6079ca?apiKey=614fc55bbb9643c2906fc5702ff45b8b&"
+										class="button-icon" alt="" />
+									<span class="button-text">Mes comptes</span>
+								</button>
+							</div>
+							<div class="multi-button-column-item">
+								<button id="canteen-button" class="menu-button">
+									<img loading="lazy"
+										src="https://cdn.builder.io/api/v1/image/assets/614fc55bbb9643c2906fc5702ff45b8b/f71fca1abf37d786275d0dcf01435c4ef857aadfe8a58896be66b2d2838863e0?apiKey=614fc55bbb9643c2906fc5702ff45b8b&"
+										class="button-icon" alt="" />
+									<span class="button-text">Cantine</span>
+								</button>
+							</div>
+							<div class="multi-button-column-item">
+								<button id="requests-button" class="menu-button">
+									<img loading="lazy"
+										src="https://cdn.builder.io/api/v1/image/assets/614fc55bbb9643c2906fc5702ff45b8b/ff1ece689ac3fbe610445d822abb9c38c9820bb45130f417357a440bbc148538?apiKey=614fc55bbb9643c2906fc5702ff45b8b&"
+										class="button-icon" alt="" />
+									<span class="button-text">Demandes</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="button-column">
+					<button id="library-button" class="menu-button">
+						<img loading="lazy"
+							src="https://cdn.builder.io/api/v1/image/assets/614fc55bbb9643c2906fc5702ff45b8b/8d593f18f295f0063aea6ce26fe9b11170a8e29407d77b10c8ae4ce9eee37f11?apiKey=614fc55bbb9643c2906fc5702ff45b8b&"
+							class="button-icon" alt="" />
+						<span class="button-text">Library</span>
+					</button>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
+
+</body>
+</html>

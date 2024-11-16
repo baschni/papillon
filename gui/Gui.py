@@ -1,8 +1,5 @@
 from multipledispatch import dispatch
 from json import dumps as j
-from init.classes import init_classes
-from init.design import init_design
-from init.logic import init_logic
 from queue import Queue
 
 # https://stackoverflow.com/questions/8024149/is-it-possible-to-get-the-non-enumerable-inherited-property-names-of-an-object
@@ -85,10 +82,9 @@ var SimplePropertyRetriever = {
 """
 
 class Gui():
-    def __init__(self, window):
+    def __init__(self, window, init):
         self.window = window
-        #self.api = window._js_api
-
+        self.init = init
         self.events = dict()
         self.event_queue = Queue()
         self.working = False
@@ -100,6 +96,7 @@ class Gui():
         self.add(Element, "html")
         self.js("document.body.id = 'body'")
         self.add(Element, "body")
+        
     def add(self, gui_class, html_id):
         # add variable to class object namespace by constructing a new object of type gui_class
         if html_id in self.__dict__.keys():
@@ -139,6 +136,8 @@ class Gui():
             self.events[id] = (element, [], [])
 
         if event not in self.events[id][1]:
+            
+            print("register", id, event)
             self.events[id][1].append(event)
             self.events[id][2].append(block_main_thread)
             # print(SimplePropertyRetriever)
@@ -148,6 +147,7 @@ class Gui():
                  function(event) {{ window.pywebview.api.trigger_event({j(id)}, {j(event)}, GetDictionaryOfElements(event)); }}
                  )
                  """
+            print(register_event)
             self.window.evaluate_js(register_event)
 
     def trigger_event(self, id, event, event_information):
@@ -180,13 +180,28 @@ class Gui():
                 event_element.trigger_event(event[1], event[2], event_threading[event_keywords.index(event_name)])
         self.working = False
 
+    def unregister_events(self):
+        for id, events in self.events.items():
+            # self.events[id][1].append(event)
+            # self.events[id][2].append(block_main_thread)
+            # print(SimplePropertyRetriever)
+            for event in events[1]:
+                register_event = f"""
+                    document.getElementById({j(id)}).removeEventListener(
+                    {j(event)},
+                    function(event) {{ window.pywebview.api.trigger_event({j(id)}, {j(event)}, GetDictionaryOfElements(event)); }}
+                    )
+                    """
+                print("unregister", id, event)
+                print(register_event)
+                self.window.evaluate_js(register_event)
+
     def unregister_event(self, id, vent):
         pass
 
     def initialize(self):
-        init_classes(self)
-        init_design(self)
-        init_logic(self)
+        pass
+        #init(self)
 
 
     @dispatch(str, str, str)

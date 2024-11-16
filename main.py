@@ -13,12 +13,12 @@ from os import getcwd
 import os
 from screeninfo import get_monitors
 from shutil import copyfile
-from api import Api
-from gui.Gui import Gui
+#from gui.Gui import Gui
 from os import path
 from config import HTML_BASE_FOLDER
+from init.init import Init
 
-INDEX_HTML = path.join(HTML_BASE_FOLDER,"index.htm")
+INDEX_HTML = path.join(HTML_BASE_FOLDER,"menu.html")
 
 
 if __name__ == '__main__':
@@ -42,10 +42,10 @@ if __name__ == '__main__':
     #target_path="html/index.htm"
     window = webview.create_window("Prison system", INDEX_HTML, width=monitor.width, height=monitor.height, maximized=True)
     #js_api=api,
-    gui = Gui(window)
+    I = Init(window)
     #api.set_gui(window)
     #window.js_api_endpoint = api
     print ("=== start webview ===")
     # after loading of webview the api initialise function will be called from html script tag (see index.htm)
-    webview.start(gui.initialize, gui="edgechromium")
+    webview.start(I.init, gui="edgechromium")
 

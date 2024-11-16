@@ -11,7 +11,6 @@ from gui.Modal import Modal
 from gui.Element import Element
 from gui.Popup import Popup
 from gui.Input import Input
-from init.logics.handle_replicate import predict
 import asyncio
 
 class Prompt():

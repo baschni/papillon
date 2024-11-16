@@ -1,7 +1,7 @@
 from json import dumps as j
-from init.classes import init_classes
+from init.logics_gui_core.old import init_classes
 from init.design import init_design
-from init.logic import init_logic
+from init.init import init_logic
 
 from queue import Queue
 
