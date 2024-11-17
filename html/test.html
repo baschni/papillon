@@ -1,0 +1,163 @@
+<html>
+<body>
+<div id="center">
+<div class="top">
+	<style></style>
+	<div class="topmenu">
+		<label><input type="radio" name="topmenu" value="1">Floor 1</label>
+		<label><input type="radio" name="topmenu" value="2">Floor 2</label>
+		<label><input type="radio" name="topmenu" value="3" checked="true">Floor 3</label>
+		<label><input type="radio" name="topmenu" value="4">Floor 4</label>
+	</div>
+	<div class="profile">
+		<div style="display: inline-block; vertical-align: top; text-align: right;">
+			<div>Sarah (Inmate)</div>
+			<div>Cell 3</div>
+		</div>
+		<img style="display: inline-block; width: 100px;" src="images/profile.png" alt="Profile" />
+	</div>
+</div>
+<div class="body">
+	<style></style>
+	<div class="cellplan">
+		<label><input type="radio" name="cells" value="11">Cell 11</label>
+		<label><input type="radio" name="cells" value="12">Cell 12</label>
+		<label><input type="radio" name="cells" value="13">Cell 13</label>
+		<label><input type="radio" name="cells" value="14">Cell 14</label>
+		<label><input type="radio" name="cells" value="15" checked="checked">Cell 15</label>
+		<label><input type="radio" name="cells" value="16">Cell 16</label>
+	</div>
+	<div class="form">
+		<style></style>
+		<p> I want to change from cell 3 to cell 15.</p>
+		<p style="vertical-align: middle;"><input  style="vertical-align: middle;" type="checkbox" label="asdf" /> <label style="vertical-align: middle;">I have spoken to the inmates in the cell.</label></p>
+		<p style="vertical-align: middle;"></p><input type="radio" value="value1" name="group1"> There is an empty room.</p>
+		<p style="vertical-align: middle;"></p><input type="radio" value="value2" name="group1"> There is an inmate in this room who wants to change rooms with me.</p>
+	</div>
+</div>
+
+<div class="bottom">
+	<button>Send change request</button>
+	<button>Cancel request</button>
+</div>
+</div>
+</body>
+</html>
+
+<style>
+	:root {
+    --main-color:#06c;
+	--t: transparent;
+}
+</style>
+
+<style>.profile {
+	display: block;
+	float: right;
+	white-space: nowrap;
+	font-size: 2em;
+}</style>
+
+
+<style>.topmenu {
+	float: left;
+}</style>
+<style>
+.topmenu label
+{
+	margin-left: 2em;
+	font-size: 2em;
+	padding: 0.2em;
+	border-bottom: 0.2em solid transparent;
+	display: inline-block;
+}
+.topmenu label input
+{
+	display: none;
+}
+.topmenu label:has(input[type="radio"]:checked)
+{
+	text-color: green;
+	border-bottom: 0.2em solid green;
+}
+</style>
+
+<style>
+.cellplan label
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	float: left;
+	width: 30%;
+	height: 25%;
+	margin-left: 2%;
+	font-size: 2em;
+	border: 1px solid transparent;
+	padding: 0.2em;
+}
+.cellplan label input
+{
+	display: none;
+
+}
+.cellplan label:has(input[type="radio"]:checked)
+{
+	border: 1px solid green;
+	color: green;
+}
+</style>
+
+<style>
+.cellplan {
+	float: left;
+	width: 33%;
+}
+.form {
+	float: left;
+	width: 66%;
+}
+</style>
+<style>
+.top {
+	float: left;
+	width: 99%;
+	margin: auto;
+}
+.body {
+	float: left;
+	margin-top: 5%;
+	width: 99%;
+	height: 60%;
+	display: block;
+}
+.bottom {
+	float: right;
+	margin: auto;
+}
+
+</style>
+
+<style>
+body {
+	width: 99%;
+	height: 99%;
+}
+html {
+	width: 99%;
+	height: 99%;
+}
+body
+{
+	background-color: lightgrey;
+}
+
+div#center
+{
+	width: 80%;
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+</style>

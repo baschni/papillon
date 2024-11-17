@@ -19,7 +19,7 @@ class Inmate(Gui):
         return self
 
     def print_hello(self):
-        self.init.change_page("html/index.html", Inmate2)
+        self.init.change_page("html/index.html", "Inmate")
 
 
 class Inmate2(Gui): 
@@ -31,5 +31,5 @@ class Inmate2(Gui):
         return self
 
     def print_hello(self):
-        self.init.change_page("html/menu.html", Inmate)
+        self.init.change_page("html/menu.html", "Inmate")
 

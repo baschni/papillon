@@ -40,7 +40,7 @@ if __name__ == '__main__':
     #target_path = path.join(PDF_BASE_FOLDER,".index.htm")
     #copyfile("html/index.htm", target_path)
     #target_path="html/index.htm"
-    window = webview.create_window("Prison system", INDEX_HTML, width=monitor.width, height=monitor.height, maximized=True)
+    window = webview.create_window("Prison system", INDEX_HTML, maximized=True)
     #js_api=api,
     I = Init(window)
     #api.set_gui(window)

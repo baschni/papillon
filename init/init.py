@@ -16,7 +16,7 @@
 # import re
 # import shutil
 #from main import WINDOW
-from init.Inmate import Inmate
+from init.Inmate import Inmate, Inmate2
 
 
 
@@ -42,10 +42,12 @@ class Init():
         self.gui = self.gui_class(self.window, self)
         self.gui.initialize()
 
-    def get_gui_class(id)
+    def get_gui_class(self, id):
         if id == "Inmate":
             return Inmate
-        else
+        elif id == "Inmate2":
+            return Inmate2
+        else:
             return None
 
     # window.expose(self.trigger_event)
